@@ -59,17 +59,17 @@ public class Kernel
 
    // Standard input
    private static BufferedReader input
-      = new BufferedReader( new InputStreamReader( System.in ) );
+           = new BufferedReader( new InputStreamReader( System.in ) );
 
    // The heart of Kernel
    public static int interrupt( int irq, int cmd, int param, Object args ) {
       TCB myTcb;
       switch( irq ) {
          case INTERRUPT_SOFTWARE: // System calls
-            switch( cmd ) { 
+            switch( cmd ) {
                case BOOT:
                   // instantiate and start a scheduler
-                  scheduler = new Scheduler( ); 
+                  scheduler = new Scheduler( );
                   scheduler.start( );
 
                   // instantiate and start a disk
@@ -138,7 +138,7 @@ public class Kernel
                            StringBuffer buf = ( StringBuffer )args;
 
                            // append the keyboard intput to this read buffer
-                           buf.append( s ); 
+                           buf.append( s );
 
                            // return the number of chars read from keyboard
                            return s.length( );
@@ -211,7 +211,7 @@ public class Kernel
 
       try {
          //get the user thread class from its name
-         Class thrClass = Class.forName( thrName ); 
+         Class thrClass = Class.forName( thrName );
          if ( args.length == 1 ) // no arguments
             thrObj = thrClass.newInstance( ); // instantiate this class obj
          else {                  // some arguments
@@ -223,8 +223,8 @@ public class Kernel
             Object[] constructorArgs = new Object[] { thrArgs };
 
             // locate this class object's constructors
-            Constructor thrConst 
-               = thrClass.getConstructor( new Class[] {String[].class} );
+            Constructor thrConst
+                    = thrClass.getConstructor( new Class[] {String[].class} );
 
             // instantiate this class object by calling this constructor
             // with arguments
