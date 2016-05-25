@@ -32,6 +32,7 @@ public class Test4 extends Thread{
 
     //Runs test based on test type passed in command line arguments
     public void run() {
+        flush();
         //Choose which test to run based on test type
         switch (testType) {
             case 1:
