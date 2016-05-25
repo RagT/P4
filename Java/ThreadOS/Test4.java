@@ -80,7 +80,7 @@ public class Test4 extends Thread{
 
     //generate disk accesses that do not make good use of the disk cache at all.
     public void adversary() {
-        SysLib.cout("Localized Access Test: \n");
+        SysLib.cout("Adversary Access Test: \n");
         for(int i = 0; i < locations.length; i++){
             locations[i] = i;
         }
