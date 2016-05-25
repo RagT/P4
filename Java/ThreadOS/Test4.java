@@ -15,19 +15,6 @@ public class Test4 extends Thread{
     private int[] locations; //Used to store read/write locations for tests
 
     public Test4(String[] args) {
-        testType = Integer.parseInt(args[1]);
-        write = new byte[1024];
-        read = new byte[1024];
-        rand = new Random();
-        rand.nextBytes(write);
-        if (args[0].equals("enabled")){
-            enabled = true;
-        }
-        else {
-            enabled = false;
-        }
-
-        /*
         if(args[0].equals("enabled")) {
             //Enable use of cache
             enabled = true;
@@ -36,12 +23,11 @@ public class Test4 extends Thread{
         }
         read = new byte[1024];
         write = new byte[1024];
+        rand = new Random();
         rand.nextBytes(write);      //Fill write block with random values
 
         testType = Integer.parseInt(args[1]);
-        rand = new Random();
         locations = new int[500];
-        */
     }
 
     //Runs test based on test type passed in command line arguments
