@@ -32,7 +32,7 @@ public class Test4 extends Thread{
 
     //Runs test based on test type passed in command line arguments
     public void run() {
-        flush();
+        SysLib.flush();
         //Choose which test to run based on test type
         switch (testType) {
             case 1:
@@ -99,15 +99,6 @@ public class Test4 extends Thread{
     //Will use csync() if cache enabled will use sync() if not
     private void sync() {
         if(enabled) {
-            SysLib.csync();
-        } else {
-            SysLib.sync();
-        }
-    }
-
-    //Will use cflush() if cache enabled will use flush() if not
-    private void flush() {
-        if(enabled){
             SysLib.csync();
         } else {
             SysLib.sync();
