@@ -2,9 +2,10 @@
  * Cache.java
  */
 public class Cache {
-    private CacheBlock[] blocks;
-    private int blockSize;
+    private CacheBlock[] blocks; //Array of blocks in cache
+    private int blockSize;  //Size of each block in cache
 
+    //Class used to store cache block information
     private class CacheBlock {
         public byte[] data;
         public boolean dirty;  //dirty bit
