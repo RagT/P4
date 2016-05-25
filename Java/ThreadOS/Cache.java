@@ -153,7 +153,7 @@ public class Cache {
 
     //Picks a block as a victim
     public int getVictim() {
-        for(int victim = 0; true ; victim++){
+        for(int victim = 0; true ; victim = (victim + 1) % blocks.length){
             if(!blocks[victim].reference) { //If reference is false dirty bit must also be false
                 return victim;
             }
