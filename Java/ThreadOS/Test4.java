@@ -15,7 +15,7 @@ public class Test4 extends Thread{
     private int[] locations; //Used to store read/write locations for tests
 
     public Test4(String[] args) {
-        if(args[0].equals("-enabled")) {
+        if(args[0].equals("enabled")) {
             //Enable use of cache
             enabled = true;
         } else { //Don't use cache
