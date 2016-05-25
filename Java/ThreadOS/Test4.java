@@ -59,7 +59,7 @@ public class Test4 extends Thread{
     public void random() {
         SysLib.cout("Random Access Test: \n");
         for(int i = 0; i < locations.length; i++) {
-            locations[i] = rand.nextInt(1024);    //Fill locations array with random locations
+            locations[i] = rand.nextInt(512);    //Fill locations array with random locations
         }
         testReadAndWrite("Random");
     }
@@ -72,7 +72,7 @@ public class Test4 extends Thread{
             if(randInt < 9) { //localized access
                 locations[i] = rand.nextInt(15);
             } else { //Completely random access
-                locations[i] = rand.nextInt(1024);
+                locations[i] = rand.nextInt(512);
             }
         }
         testReadAndWrite("Mixed");
