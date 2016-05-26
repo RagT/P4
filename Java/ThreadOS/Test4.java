@@ -8,7 +8,7 @@ import java.util.Date;
 public class Test4 extends Thread{
 
     private boolean enabled; //Is cache enabled?
-    private int testType; //What test to run?
+    private String testType; //What test to run?
     private Random rand; //Used to run random tests
     private byte[] read; //Read from this array
     private byte[] write; //Write to this array
@@ -26,7 +26,7 @@ public class Test4 extends Thread{
         rand = new Random();
         rand.nextBytes(write);      //Fill write block with random values
 
-        testType = Integer.parseInt(args[1]);
+        testType = args[1];
         locations = new int[500];
     }
 
@@ -34,22 +34,14 @@ public class Test4 extends Thread{
     public void run() {
         SysLib.flush();
         //Choose which test to run based on test type
-        switch (testType) {
-            case 1:
-                random();
-                break;
-            case 2:
-                localized();
-                break;
-            case 3:
-                mixed();
-                break;
-            case 4:
-                adversary();
-                break;
-            default:
-                SysLib.cerr("Invalid test type.\n");
-                break;
+        if(testType.equalsIgnoreCase("random")) {
+            random();
+        } else if (testType.equalsIgnoreCase("localized")) {
+            localized();
+        } else if(testType.equalsIgnoreCase("mixed")) {
+            mixed();
+        } else if(testType.equalsIgnoreCase("adversary")) {
+            adversary();
         }
         sync();
         SysLib.exit();
