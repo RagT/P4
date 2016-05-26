@@ -58,7 +58,7 @@ public class Cache {
         int victim = getVictim();
         writeToDisk(victim); //Writes victim to disk if dirty bit is set
         SysLib.rawread(blockId, blocks[victim].data); //Reads new item from disk to replace victim
-        readFromCache(blockFound, blockId, buffer);
+        readFromCache(victim, blockId, buffer);
         return true;
     }
 
@@ -88,7 +88,7 @@ public class Cache {
         int victim = getVictim();
         writeToDisk(victim); //Writes victim to disk if dirty bit is set
         SysLib.rawread(blockId, blocks[victim].data); //Reads new item from disk to replace victim
-        writeToCache(blockFound, blockId, buffer);
+        writeToCache(victim, blockId, buffer);
         return true;
     }
 
