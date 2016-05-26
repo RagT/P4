@@ -42,6 +42,8 @@ public class Test4 extends Thread{
             mixed();
         } else if(testType.equalsIgnoreCase("adversary")) {
             adversary();
+        } else {
+            Sylib.cout("Invalid test type\n");
         }
         sync();
         SysLib.exit();
